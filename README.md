@@ -16,6 +16,12 @@ There is a complimentry repository containing the code for the back-end - suppor
 
 We also have a sample back end hosted in the cloud at the following URL: `http://tradingtileserver.azurewebsites.net`.
 
+### Accompanying presentation
+
+We typically use this as part of our "brown bag" or "lunch and learn" initiative and you can find the PDF of the accompanying presentation in the root of this repository.
+
+If you are interested in learning more about which sessions we offer (free!) then get in touch with us at `brownbag@digiterre.com`.
+
 ### Running the samples
 
 #### Vanilla JS
