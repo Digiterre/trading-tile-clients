@@ -10,7 +10,6 @@ var TradingIndicator = React.createClass({
 	},
 	
 	render: function() {
-		
 		return (
 			<td style={{width: '20%'}}>
 				<table style={{height: '100%'}}>
