@@ -56,7 +56,7 @@ gulp.task('js', function() {
 
 	bundler
 		.transform(reactify)
-		// .plugin('minifyify', {map: '/bundle.map.json', output: config.paths.dist + '/bundle.map.json'})
+		.plugin('minifyify', {map: '/bundle.map.json', output: config.paths.dist + '/bundle.map.json'})
 		.bundle()
 		.on('error', console.error.bind(console))
 		.pipe(source('bundle.js'))
