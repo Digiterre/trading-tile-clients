@@ -15,8 +15,6 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-    
-      
       'src/scripts/jquery-1.12.0.min.js',
       'src/scripts/jquery.signalr-2.2.0.min.js',
       'dist/scripts/bundle.js',                  
