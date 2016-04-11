@@ -1,4 +1,4 @@
-"use strict"; 
+'use strict'; 
 
 var HubProxy = require('../core/hubProxy');
 var tradingActions = require('./tradingActions');

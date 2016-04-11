@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var React = require('react');
 var ActionTypes = require('../actionTypes');
@@ -28,59 +28,65 @@ var TradingTile = React.createClass({
 
 	_onTrade: function (action) {
 		var order = $.extend({}, this.state.model, { action: action });
-		
-		tradingActions.executeTrade(order);		
+		tradingActions.executeTrade(order);
 	},
 
 	render: function() {
-
 		return (
-			<section >    
-				<div style={{width: '100%'}}>
-				<div className="inner">
-					
-				{this.state.model.isExecuting ? (
-					<div className="tradingTile">
-						<span className="execute">
-							Executing...
+			<div className="tile">
+				<nav className="tile__header">
+					<div className="tile__currency">
+						{this.state.model.symbols}{' '}
+						<span className="sprite sprite--direction tile__currency-icon"></span>
+					</div>
+					<div className="tile__product">
+						SP<span className="tile__product-divider">/</span>FW <span className="sprite sprite--dropdown tile__product-icon"></span>
+					</div>
+					<span className="sprite sprite--close tile__close"></span>
+				</nav>
+				<div className="tile__body">
+					<TradingPlate
+						action={'SELL'}
+						onTrade={this._onTrade}
+						{...this.state.model.buyPips} />
+					<div className="tile__spread">
+						{this.state.model.spread}
+					</div>
+					<TradingPlate
+						action="Buy"
+						onTrade={this._onTrade}
+						{...this.state.model.sellPips} />
+				</div>
+				<div className="tile__footer">
+					<div className="tile__quantity">
+						<span className="tile__quantity-unit">
+							GBP
+						</span>
+						<span className="tile__quantity-value">
+							1,000,000
 						</span>
 					</div>
-				) : (
-					<div className="tradingTile">
-						<table style={{width: '100%', height: '100%'}}>
-							<tbody>
-								<tr>
-									<td style={{width: '40%'}} className="symbol">{this.state.model.symbols}</td>
-									<td style={{width: '60%'}}></td>
-								</tr>
-								<tr>
-									<td colSpan="2">
-										<table style={{width: '100%', 'textAlign': 'center'}}>
-											<tbody>
-												<tr>
-													<TradingPlate 	action= {'SELL'}
-																onTrade={this._onTrade}
-																bigFig={this.state.model.buyPips.bigFig} 
-																pips={this.state.model.buyPips.pips} 
-																fractionalPips={this.state.model.buyPips.fractionalPips}/>
-													
-													<TradingIndicator spread={this.state.model.spread} movement={this.state.model.movement}/>
-													<TradingPlate action= {'BUY'} onTrade={this._onTrade} {...this.state.model.sellPips}/>
-												</tr>
-											</tbody>
-										</table>                            
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<div className="quantity" style={{'fontSize': '16px', 'textAlign': 'right'}}>{this.state.model.quantity}</div>
+					<div className="tile__tenor">
+						<span className="tile__tenor-unit">
+							SP
+						</span>
+						{' '}
+						<span className="tile__tenor-value">
+							11-Jan-2015
+						</span>
 					</div>
-
-				)}
-									
 				</div>
-				</div>
-			</section>
+				{this.state.model.isExecuting ? (
+					<div className="tile__overlay">
+						<span className="tile__overlay-text">Executing Trade...</span>
+						<div className="spinner">
+							<div className="spinner__bounce1"></div>
+							<div className="spinner__bounce2"></div>
+							<div className="spinner__bounce3"></div>
+						</div>
+					</div>
+				) : null}
+			</div>
 		);
 	}
 });

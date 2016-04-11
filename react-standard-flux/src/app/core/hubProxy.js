@@ -1,7 +1,7 @@
 
 module.exports = (function() {
 
-    "use strict";
+    'use strict';
 
     function HubProxy(endpoint) {
                              

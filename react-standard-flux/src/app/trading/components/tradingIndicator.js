@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var React = require('react');
 
@@ -10,7 +10,6 @@ var TradingIndicator = React.createClass({
 	},
 	
 	render: function() {
-		
 		return (
 			<td style={{width: '20%'}}>
 				<table style={{height: '100%'}}>

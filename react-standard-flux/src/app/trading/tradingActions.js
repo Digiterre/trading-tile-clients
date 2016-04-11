@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var constants = require('../core/constants');
 var Dispatcher = require('../core/appDispatcher');

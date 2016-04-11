@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },  
+  },
   "dependencies": {
     "bootstrap": "^3.3.5",
     "browserify": "^11.0.1",
@@ -24,5 +24,8 @@
     "reactify": "^1.1.1",
     "toastr": "^2.1.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }
