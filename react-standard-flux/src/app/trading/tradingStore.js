@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var Dispatcher = require('../core/appDispatcher');
 var EventEmitter = require('events').EventEmitter;

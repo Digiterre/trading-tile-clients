@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var React = require('react');
 var TradingTile = require('./tradingTile');
@@ -9,9 +9,9 @@ var TradingPage = React.createClass({
 	render: function() {
 
 		return (
-			<section >
-				<TradingTile/>
-				<TradingNotifier/>
+			<section className="container">
+				<TradingTile />
+				<TradingNotifier />
 			</section>
 		);
 	}
