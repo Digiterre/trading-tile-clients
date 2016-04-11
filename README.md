@@ -8,6 +8,7 @@ The purpose of this exercise is to introduce to the reader the differences betwe
 - Vanilla JS (with JQuery)
 - Angular (not Angular2)
 - ReactJS (and Flux)
+- Angular with ReactJS
 
 We are not accepting contributions at this time, but if you found this helpful, let us know by starring this repository, or getting in touch at `hello@digiterre.com`!
 
@@ -48,5 +49,10 @@ If you are interested in learning more about which sessions we offer (free!) the
 -	ensure you have installed gulp globally with `npm install -g gulp`
 -	`gulp`
 -	browse to `localhost:9005`
+
+
+#### Angular with ReactJS
+
+-	See Angular instructions
 
 Copyright 2016 Digiterre Agility Ltd.
