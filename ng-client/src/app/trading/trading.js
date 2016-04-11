@@ -38,8 +38,6 @@ function Trading($scope, modelprovider, tradingservice, toastr) {
             vm.isExecuting = false;
             
             informTrader(resp.data);                                    
-
-            throw new Error();
         });            
     }
     
@@ -47,8 +45,7 @@ function Trading($scope, modelprovider, tradingservice, toastr) {
         toastr.success(tradeData.action + " " + tradeData.quantity + " @ " + tradeData.spot + " " + tradeData.symbols + " <br/> with id " + tradeData.tradeId);
     }                        
                             
-    modelprovider.onModelChanged( function(data) {
-        
+    modelprovider.onModelChanged( function(data) {   
         $.extend(vm, data);
         $scope.$apply();
     });                

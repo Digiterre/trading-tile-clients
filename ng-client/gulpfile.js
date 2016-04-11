@@ -15,11 +15,14 @@ var config = {
 	paths: {
 		html: './src/**/*.html',
 		js: './src/**/*.js',
-		images: './src/images/*',
-		css: [      		
-      		'node_modules/toastr/build/toastr.min.css',
-      		'./src/content/app.css'
-    	],
+		images: [
+            './src/images/*',
+            '../static-tile/spritesheet.png'
+        ],
+        css: [              
+            'node_modules/toastr/build/toastr.min.css',
+            '../static-tile/style.css'
+        ],
 		dist: './dist',
 		mainJs: './src/main.js'
 	}

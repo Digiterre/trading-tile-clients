@@ -1,89 +1,78 @@
-<section data-ng-controller="Trading as vm">    
-    <div style="width: 100%;">
-    <div class="inner">
-        <div ng-show="vm.isExecuting" class="tradingTile">
-            <span class="execute"">
-            Executing...
-            </span>
-         </div>
-        <div ng-hide="vm.isExecuting" class="tradingTile">
-            <table style="height: 100%; width: 100%;">
-                <tbody>
-                    <tr>
-                        <td style="width: 40%" class="symbol">{{vm.symbols}}</td>
-                        <td style="width: 60%">
-                            
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <table style="text-align: center; width: 100%;">
-                                <tbody>
-                                    <tr>
-                                        <td ng-class="{hover: sellintent}" ng-mouseenter="sellintent=true" ng-mouseleave="sellintent=false" ng-click="vm.executeTrade('Sell')" style="width: 40%;">
-                                            <div>
-                                                <table>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="lowlight" style="font-size: 16px">SELL</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="width: 100%;">
-                                                                <span class="lowlight" style="font-size: 18px;">{{vm.sellPips.bigFig}}</span>
-                                                                <span class="highlight pips">{{vm.sellPips.pips}}</span>
-                                                                <span class="lowlight" style="font-size: 18px">{{vm.sellPips.fractionalPips}}</span>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </td>
-                                        <td style="width: 20%;">
-                                            <table style="height: 100%">
-                                                <tbody>
-                                                    <tr style="height: 30%">
-                                                        <td>
-                                                            <div ng-show="vm.movement == 'up'" class="upArrow">up</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="height: 40%">
-                                                        <td><span class="highlight" style="font-size: 16px; margin: 3px">{{vm.spread}}</span></td>
-                                                    </tr>
-                                                    <tr style="height: 30%">
-                                                        <td>
-                                                            <div ng-show="vm.movement == 'down'" class="downArrow">down</div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                        <td ng-class="{hover: buyintent}"  ng-mouseenter="buyintent=true" ng-mouseleave="buyintent=false" ng-click="vm.executeTrade('Buy')" style="width: 40%;">
-                                            <div>
-                                                <table>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="lowlight" style="font-size: 16px">BUY</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="width: 100%;">
-                                                                <span class="lowlight" style="font-size: 18px;">{{vm.buyPips.bigFig}}</span>
-                                                                <span class="highlight pips">{{vm.buyPips.pips}}</span>
-                                                                <span class="lowlight" style="font-size: 18px">{{vm.buyPips.fractionalPips}}</span>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>                            
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div id="quantity" class="quantity" style="font-size: 16px; text-align: right">{{vm.quantity}}</div>            
+<section class="container" data-ng-controller="Trading as vm">    
+    <div class="tile">
+        <nav class="tile__header">
+            <div class="tile__currency">
+                {{vm.symbols}}
+                <span class="sprite sprite--direction tile__currency-icon"></span>
+            </div>
+            <div class="tile__product">
+                SP<span class="tile__product-divider">/</span>FW
+                <span class="sprite sprite--dropdown tile__product-icon"></span>
+            </div>
+            <span class="sprite sprite--close tile__close"></span>
+        </nav>
+        <div class="tile__body">
+            <div class="tile__plate" ng-click="vm.executeTrade('Sell')">
+                <div class="tile__action">
+                    Sell GBP
+                </div>
+                <div class="tile__spotrate">
+                    <span class="tile__big-fig">
+                        {{vm.sellPips.bigFig}}
+                    </span>
+                    <span class="tile__pips">
+                        {{vm.sellPips.pips}}
+                    </span>
+                    <span class="tile__fractional-pips">
+                        {{vm.sellPips.fractionalPips}}
+                    </span>
+                </div>
+            </div>
+            <div class="tile__spread">
+                {{vm.spread}}
+            </div>
+            <div class="tile__plate" ng-click="vm.executeTrade('Buy')">
+                <div class="tile__action">
+                    Buy USD
+                </div>
+                <div class="tile__spotrate">
+                    <span class="tile__big-fig">
+                        {{vm.buyPips.bigFig}}
+                    </span>
+                    <span class="tile__pips">
+                        {{vm.buyPips.pips}}
+                    </span>
+                    <span class="tile__fractional-pips">
+                        {{vm.buyPips.fractionalPips}}
+                    </span>
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="tile__footer">
+            <div class="tile__quantity">
+                <span class="tile__quantity-unit">
+                    GBP
+                </span>
+                <span class="tile__quantity-value">
+                    1,000,000
+                </span>
+            </div>
+            <div class="tile__tenor">
+                <span class="tile__tenor-unit">
+                    SP
+                </span>
+                <span class="tile__tenor-value">
+                    11-Jan-2015
+                </span>
+            </div>
+        </div>
+        <div ng-show="vm.isExecuting" class="tile__overlay">
+            <span class="tile__overlay-text">Executing Trade...</span>
+            <div class="spinner">
+                <div class="spinner__bounce1"></div>
+                <div class="spinner__bounce2"></div>
+                <div class="spinner__bounce3"></div>
+            </div>
+        </div>
     </div>
 </section>
