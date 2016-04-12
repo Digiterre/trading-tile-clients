@@ -12,41 +12,11 @@
             <span class="sprite sprite--close tile__close"></span>
         </nav>
         <div class="tile__body">
-            <div class="tile__plate" ng-click="vm.executeTrade('Sell')">
-                <div class="tile__action">
-                    Sell GBP
-                </div>
-                <div class="tile__spotrate">
-                    <span class="tile__big-fig">
-                        {{vm.sellPips.bigFig}}
-                    </span>
-                    <span class="tile__pips">
-                        {{vm.sellPips.pips}}
-                    </span>
-                    <span class="tile__fractional-pips">
-                        {{vm.sellPips.fractionalPips}}
-                    </span>
-                </div>
-            </div>
+            <trading-plate class="tile__plate" execute-trade="vm.executeTrade" action="'Sell'" big-fig="vm.sellPips.bigFig" pips="vm.sellPips.pips" fractional-pips="vm.sellPips.fractionalPips" />
             <div class="tile__spread">
                 {{vm.spread}}
             </div>
-            <div class="tile__plate" ng-click="vm.executeTrade('Buy')">
-                <div class="tile__action">
-                    Buy USD
-                </div>
-                <div class="tile__spotrate">
-                    <span class="tile__big-fig">
-                        {{vm.buyPips.bigFig}}
-                    </span>
-                    <span class="tile__pips">
-                        {{vm.buyPips.pips}}
-                    </span>
-                    <span class="tile__fractional-pips">
-                        {{vm.buyPips.fractionalPips}}
-                    </span>
-                </div>
-            </div>
+            <trading-plate class="tile__plate" execute-trade="vm.executeTrade" action="'Buy'" big-fig="vm.buyPips.bigFig" pips="vm.buyPips.pips" fractional-pips="vm.buyPips.fractionalPips" />
         </div>
         <div class="tile__footer">
             <div class="tile__quantity">
