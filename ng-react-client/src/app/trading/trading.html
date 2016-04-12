@@ -16,7 +16,22 @@
             <div class="tile__spread">
                 {{vm.spread}}
             </div>
-            <trading-plate class="tile__plate" execute-trade="vm.executeTrade" action="'Buy'" big-fig="vm.buyPips.bigFig" pips="vm.buyPips.pips" fractional-pips="vm.buyPips.fractionalPips" />
+            <div class="tile__plate" ng-click="vm.executeTrade('Buy')">
+                <div class="tile__action">
+                    Buy
+                </div>
+                <div class="tile__spotrate">
+                    <span class="tile__big-fig">
+                        {{vm.buyPips.bigFig}}
+                    </span>
+                    <span class="tile__pips">
+                        {{vm.buyPips.pips}}
+                    </span>
+                    <span class="tile__fractional-pips">
+                        {{vm.buyPips.fractionalPips}}
+                    </span>
+                </div>
+            </div>
         </div>
         <div class="tile__footer">
             <div class="tile__quantity">
