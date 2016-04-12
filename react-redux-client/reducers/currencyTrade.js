@@ -22,29 +22,9 @@ const initialState = {
     }
 };
 
- // pricingHub = hubproxy('pricingHub');
- //         pricingHub.on('rateChanged', onRateChanged);
- //         pricingHub.start();
- //     }
-
- //     function onRateChanged(newRate) {
-
- //         var model = $.extend({}, {
- //             symbols: symbols,
- //             quantity: quantity,
- //             movement: calculateMovement(previousRate || newRate, newRate),
- //             buyPips: formatPips(newRate.buy),
- //             sellPips: formatPips(newRate.sell)
- //         }, newRate);
-
- //         notifyModelChange(model);
-
- //         previousRate = newRate;
- //     }
-
- // NOTE: Derived data shouldn't be part of state, i.e. this should really done
- // in mapStateToProps / 'reselect'.
- function formatPips(spotRate) {
+// NOTE: Derived data shouldn't be part of state, i.e. this should really done
+// in mapStateToProps / 'reselect'.
+function formatPips(spotRate) {
     const str = '' + spotRate;
     const pad = '0000000';
     const ans = str + pad.substring(0, pad.length - str.length);

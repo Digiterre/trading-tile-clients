@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Footer({symbols}) {
+function Header({symbols}) {
     return (
         <nav className="tile__header">
             <div className="tile__currency">
@@ -16,4 +16,4 @@ function Footer({symbols}) {
     );
 }
 
-export default Footer;
+export default Header;
