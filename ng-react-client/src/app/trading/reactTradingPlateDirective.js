@@ -3,7 +3,7 @@
 var angular = require('angular');
 var React = require('react');
 
-var TradingPlate = React.createClass({
+var ReactTradingPlate = React.createClass({
 	propTypes: {
 		action: React.PropTypes.string.isRequired,
 		bigFig: React.PropTypes.string.isRequired,
@@ -36,11 +36,11 @@ var TradingPlate = React.createClass({
 	}
 });
 
-function tradingPlateDirective(reactDirective) {
-	return reactDirective(TradingPlate);
+function reactTradingPlateDirective(reactDirective) {
+	return reactDirective(ReactTradingPlate);
 }
-tradingPlateDirective.$inject = ['reactDirective'];
+reactTradingPlateDirective.$inject = ['reactDirective'];
 
 angular
 	.module('app.trading')
-	.directive('tradingPlate', tradingPlateDirective);
+	.directive('reactTradingPlate', reactTradingPlateDirective);
