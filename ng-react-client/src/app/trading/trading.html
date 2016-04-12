@@ -1,0 +1,63 @@
+<section class="container" data-ng-controller="Trading as vm">
+    <div class="tile">
+        <nav class="tile__header">
+            <div class="tile__currency">
+                {{vm.symbols}}
+                <span class="sprite sprite--direction tile__currency-icon"></span>
+            </div>
+            <div class="tile__product">
+                SP<span class="tile__product-divider">/</span>FW
+                <span class="sprite sprite--dropdown tile__product-icon"></span>
+            </div>
+            <span class="sprite sprite--close tile__close"></span>
+        </nav>
+        <div class="tile__body">
+            <trading-plate class="tile__plate" execute-trade="vm.executeTrade" action="'Sell'" big-fig="vm.sellPips.bigFig" pips="vm.sellPips.pips" fractional-pips="vm.sellPips.fractionalPips" />
+            <div class="tile__spread">
+                {{vm.spread}}
+            </div>
+            <div class="tile__plate" ng-click="vm.executeTrade('Buy')">
+                <div class="tile__action">
+                    Buy
+                </div>
+                <div class="tile__spotrate">
+                    <span class="tile__big-fig">
+                        {{vm.buyPips.bigFig}}
+                    </span>
+                    <span class="tile__pips">
+                        {{vm.buyPips.pips}}
+                    </span>
+                    <span class="tile__fractional-pips">
+                        {{vm.buyPips.fractionalPips}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="tile__footer">
+            <div class="tile__quantity">
+                <span class="tile__quantity-unit">
+                    GBP
+                </span>
+                <span class="tile__quantity-value">
+                    1,000,000
+                </span>
+            </div>
+            <div class="tile__tenor">
+                <span class="tile__tenor-unit">
+                    SP
+                </span>
+                <span class="tile__tenor-value">
+                    11-Jan-2015
+                </span>
+            </div>
+        </div>
+        <div ng-show="vm.isExecuting" class="tile__overlay">
+            <span class="tile__overlay-text">Executing Trade...</span>
+            <div class="spinner">
+                <div class="spinner__bounce1"></div>
+                <div class="spinner__bounce2"></div>
+                <div class="spinner__bounce3"></div>
+            </div>
+        </div>
+    </div>
+</section>
