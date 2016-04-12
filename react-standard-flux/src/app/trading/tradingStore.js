@@ -19,9 +19,9 @@ function TradingStore() {
 		getInitialState: getInitialState,
 		addChangeListener: addChangeListener,
 		removeChangeListener: removeChangeListener
-         };
+  };
 
-         init();
+  init();
 
 	return store;
 
@@ -60,41 +60,40 @@ function TradingStore() {
 					// no op
 			}
 		});
-         }
+  }
 
-         function onTradeDidExecute(updatedTrade) {         		
+  function onTradeDidExecute(updatedTrade) {
 		model.isExecuting = false;
-         }
+  }
 
-         function onTradeWillExecute() {				
+  function onTradeWillExecute() {
 		model.isExecuting = true;
 		self.emit(CHANGE_EVENT, model);
-         }
+  }
 
-         function onRateChanged(newRate) {         		
-
-		if (model.isExecuting) {			
+  function onRateChanged(newRate) {
+		if (model.isExecuting) {
 			return;
 		}
 
-		model = $.extend(model, {			
+		model = $.extend(model, {
 			movement: calculateMovement(previousRate || newRate, newRate),
 			buyPips: formatPips(newRate.buy),
 			sellPips: formatPips(newRate.sell)
 		}, newRate);
 
-		previousRate = newRate;		
+		previousRate = newRate;
 
 		self.emit(CHANGE_EVENT, model);
-         }
+  }
 	
-	function addChangeListener(callback) {		
+	function addChangeListener(callback) {
 		self.on(CHANGE_EVENT, callback);
 	}
 
 	function removeChangeListener(callback) {
-		self.removeListener(CHANGE_EVENT, callback);	
-          }         
+		self.removeListener(CHANGE_EVENT, callback);
+  }
 
 	function calculateMovement(priorRate, newRate) {
 		var x = newRate.buy - priorRate.buy;            
@@ -107,22 +106,20 @@ function TradingStore() {
 				return "none";                                                     
 		}
 	}
-        
-	function formatPips(spotRate) {
-            
-            var str = "" + spotRate;
-            var pad = "0000000";
-            var ans = str + pad.substring(0, pad.length - str.length);
-            
-            return {
-                bigFig: ans.substring(0, 4),
-                pips: ans.substring(4, 6),
-                fractionalPips: ans.substring(6, 8)
-            };
-            
-        }
 
-        function getInitialState() {
+	function formatPips(spotRate) {
+      var str = "" + spotRate;
+      var pad = "0000000";
+      var ans = str + pad.substring(0, pad.length - str.length);
+      
+      return {
+          bigFig: ans.substring(0, 4),
+          pips: ans.substring(4, 6),
+          fractionalPips: ans.substring(6, 8)
+      };
+  }
+
+  function getInitialState() {
 		return model;
 	}
 }
