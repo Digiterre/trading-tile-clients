@@ -1,46 +1,16 @@
 'use strict';
 
 var angular = require('angular');
-var React = require('react');
-
-var TradingPlate = React.createClass({
-	propTypes: {
-		action: React.PropTypes.string.isRequired,
-		bigFig: React.PropTypes.string.isRequired,
-		pips: React.PropTypes.string.isRequired,
-		fractionalPips: React.PropTypes.string.isRequired,
-		executeTrade: React.PropTypes.func.isRequired
-	},
-	render: function() {
-		var self = this;
-		return (
-			<div onClick={function() {
-				self.props.executeTrade(self.props.action);
-			}}>
-				<div className="tile__action">
-					{this.props.action}
-				</div>
-				<div className="tile__spotrate">
-					<span className="tile__big-fig">
-						{this.props.bigFig}
-					</span>
-					<span className="tile__pips">
-						{this.props.pips}
-					</span>
-					<span className="tile__fractional-pips">
-						{this.props.fractionalPips}
-					</span>
-				</div>
-			</div>
-		);
-	}
+angular.module('app.trading').directive('tradingPlate', function() {
+  return {
+    restrict: 'E',
+    scope: {
+      action: '=',
+      bigFig: '=',
+      pips: '=',
+      fractionalPips: '=',
+      executeTrade: '='
+    },
+    templateUrl: 'app/trading/tradingPlateDirective.html'
+  };
 });
-
-function tradingPlateDirective(reactDirective) {
-	return reactDirective(TradingPlate);
-}
-tradingPlateDirective.$inject = ['reactDirective'];
-
-angular
-	.module('app.trading')
-	.directive('tradingPlate', tradingPlateDirective);

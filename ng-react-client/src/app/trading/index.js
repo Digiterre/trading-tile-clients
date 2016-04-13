@@ -9,6 +9,7 @@ modelprovider.$inject = ['hubproxy'];
 
 angular.module('app.trading').factory('modelprovider', modelprovider);
 
+require('./reactTradingPlateDirective');
 require('./tradingPlateDirective');
 require('./trading.service');
 require('./trading');
