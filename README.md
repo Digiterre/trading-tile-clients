@@ -7,7 +7,8 @@ The purpose of this exercise is to introduce to the reader the differences betwe
 
 - Vanilla JS (with JQuery)
 - Angular (not Angular2)
-- ReactJS (and Flux)
+- ReactJS with Flux
+- ReactJS with Redux
 - Angular with ReactJS
 
 We are not accepting contributions at this time, but if you found this helpful, let us know by starring this repository, or getting in touch at `hello@digiterre.com`!
@@ -42,7 +43,7 @@ If you are interested in learning more about which sessions we offer (free!) the
 -	browse to `http://localhost:9005`
 
 
-#### ReactJS
+#### ReactJS with Flux
 
 -	`cd` into `react-standard-flux`
 -	npm install`
@@ -50,9 +51,18 @@ If you are interested in learning more about which sessions we offer (free!) the
 -	`gulp`
 -	browse to `localhost:9005`
 
+#### ReactJS with Redux
+
+-	`cd` into `react-redux-client`
+-	`npm install && npm start`
+-	browse to `localhost:8080`
 
 #### Angular with ReactJS
 
--	See Angular instructions
+-	`cd` into `ng-react-client` directory
+-	`npm install`
+-	ensure you have installed gulp globally with `npm install -g gulp`
+-	`gulp`
+-	browse to `http://localhost:9005`
 
 Copyright 2016 Digiterre Agility Ltd.
