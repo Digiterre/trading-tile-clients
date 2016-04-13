@@ -14,7 +14,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 loaders: ['babel'],
                 exclude: /node_modules/,
                 include: __dirname
@@ -24,6 +24,9 @@ module.exports = {
                 loaders: ['style', 'css']
             }
         ]
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
     },
     plugins: [
         // Required for `ms-signalr-client`...
