@@ -1,0 +1,8 @@
+{
+    "extends": "./node_modules/60frames-coding-standards/.eslintrc-react",
+    "rules": {
+        "linebreak-style": 0, // [2, 'windows'] produces false negatives.
+        "valid-jsdoc": 0,
+        "func-style": [2, "declaration", { "allowArrowFunctions": true }]
+    }
+}
