@@ -1,0 +1,19 @@
+{
+  "name": "ng2-client",
+  "version": "1.0.0",
+  "description": "Angular2 trading tile client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Digiterre Agility Ltd",
+  "license": "ISC",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.17",
+    "es6-shim": "^0.35.1",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "^5.0.0-beta.10",
+    "systemjs": "^0.19.31",
+    "zone.js": "^0.6.12"
+  }
+}
